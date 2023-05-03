@@ -1,4 +1,4 @@
-package br.com.jurisconexao.chat.chat;
+package br.com.jurisconexao.chat.models;
 
 public enum MessageType {
 
