@@ -11,11 +11,17 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // chat client will use this to connect to the server
         registry.addEndpoint("/ws-chat").setAllowedOrigins("*").withSockJS();
+        registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.setApplicationDestinationPrefixes("/app");
+    	 registry.setApplicationDestinationPrefixes("/app");
+         registry.enableSimpleBroker("/chatroom","/user");
+         registry.setUserDestinationPrefix("/user");
         registry.enableSimpleBroker("/topic/");
     }
+    
+   
+        
 }
