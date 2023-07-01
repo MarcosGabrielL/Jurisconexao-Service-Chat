@@ -7,6 +7,8 @@ package br.com.jurisconexao.chat.models;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import org.springframework.data.annotation.*;
 
@@ -17,6 +19,10 @@ import java.util.List;
 @Table(name = "Message")
 public class Chat {
 
+     @jakarta.persistence.Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
+     
     @Transient
     public static final String SEQUENCE_NAME = "chat_sequence";
 
