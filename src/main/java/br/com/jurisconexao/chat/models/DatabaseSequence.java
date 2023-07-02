@@ -5,6 +5,8 @@
 package br.com.jurisconexao.chat.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
 
@@ -12,23 +14,24 @@ import org.springframework.data.annotation.Id;
 @Table(name = "chats_database_sequences")
 public class DatabaseSequence {
 
-    @Id
-    private String id;
+     @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
     private int seq;
 
     public DatabaseSequence() {
     }
 
-    public DatabaseSequence(String id, int seq) {
+    public DatabaseSequence(Long id, int seq) {
         this.id = id;
         this.seq = seq;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
