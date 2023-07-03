@@ -1,53 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.jurisconexao.chat.models;
 
-
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.*;
+import jakarta.persistence.*;
 
 import java.util.List;
 
-
 @Entity
-@Table(name = "Message")
+@Table(name = "Chat")
 public class Chat {
 
-     @jakarta.persistence.Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
-     
-    @Transient
-    public static final String SEQUENCE_NAME = "chat_sequence";
-
     @Id
-    private int chatId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String firstUserName;
     private String secondUserName;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "chat")
     private List<Message> messageList;
 
     public Chat() {
     }
 
-    public Chat(int chatId, String firstUserName, String secondUserName, List<Message> messageList) {
-        this.chatId = chatId;
+    public Chat(String firstUserName, String secondUserName, List<Message> messageList) {
         this.firstUserName = firstUserName;
         this.secondUserName = secondUserName;
         this.messageList = messageList;
     }
 
-    public int getChatId() {
-        return chatId;
+    public Long getId() {
+        return id;
     }
 
-    public void setChatId(int chatId) {
-        this.chatId = chatId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstUserName() {
