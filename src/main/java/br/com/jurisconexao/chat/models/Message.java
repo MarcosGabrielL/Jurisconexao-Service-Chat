@@ -1,14 +1,9 @@
 package br.com.jurisconexao.chat.models;
 
 
-import lombok.*;
 import jakarta.persistence.*;
-import java.util.Date;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 
 @Entity
 @Table(name = "Message")
