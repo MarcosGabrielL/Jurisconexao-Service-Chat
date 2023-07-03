@@ -15,7 +15,7 @@ public class Message {
     private String receiverName;
     private String message;
     private String date;
-    private Status status;
+    private String status;
 	public String getSenderName() {
 		return senderName;
 	}
@@ -40,10 +40,10 @@ public class Message {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public Long getId() {
