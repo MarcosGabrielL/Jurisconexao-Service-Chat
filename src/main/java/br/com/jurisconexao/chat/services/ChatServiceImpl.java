@@ -28,7 +28,7 @@ public class ChatServiceImpl implements ChatService {
     private SequenceGeneratorService sequenceGeneratorService;
 
     public Chat addChat(Chat chat) {
-        chat.setChatId(sequenceGeneratorService.generateSequence(Chat.SEQUENCE_NAME));
+        //chat.setChatId(sequenceGeneratorService.generateSequence(Chat.SEQUENCE_NAME));
         return chatRepository.save(chat);
     }
 
